@@ -7,6 +7,16 @@
       <button (click)="logOut()">Log out</button>
       <button (click)="showAdminPortal()">Settings</button>
     </div>
+    <div>
+      @if(user.tenantIds.length > 1){
+        <select title="tentant-selection" #mySelect (change)="tenantSelectionChanged(mySelect.value)" >
+          <option *ngFor="let tenantId of user.tenantIds" [value]="tenantId">
+            {{tenantId}}
+          </option>
+        </select>
+        <button (click)="switchTenant()">Switch Tenant</button>
+      }
+    </div>
     } @else {
     <div>
       <!-- Uncomment when not using auto-redirect-->
