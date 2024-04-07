@@ -21,7 +21,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.fronteggAuthService?.user$.subscribe((user) => {
-      this.user = user
+      this.user = user;
+      this.currentTenantId = user?.tenantId;
     })
   }
 
