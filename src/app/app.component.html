@@ -10,7 +10,7 @@
     <div>
       @if(user.tenantIds.length > 1){
         <select title="tentant-selection" #mySelect (change)="tenantSelectionChanged(mySelect.value)" >
-          <option *ngFor="let tenantId of user.tenantIds" [value]="tenantId">
+          <option *ngFor="let tenantId of user.tenantIds" [value]="tenantId" [selected]="tenantId == user.tenantId">
             {{tenantId}}
           </option>
         </select>
